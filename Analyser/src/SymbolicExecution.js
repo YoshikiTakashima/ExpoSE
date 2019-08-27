@@ -83,7 +83,9 @@ class SymbolicExecution {
 				sourceString = "" + sourceString.documentURI;
 			} else if (sourceString.baseURI) {
 				sourceString = "" + sourceString.baseURI;
-			} else if (sourceString && sourceString.toString) {
+			} else if (sourceString.formAction) {
+        sourceString = "" + sourceString.formAction;
+      } else if (sourceString && sourceString.toString) {
 				let tsourceString = sourceString.toString();
 				if (tsourceString.includes("Object]")) {
 					sourceString = ObjectHelper.asString(sourceString);
