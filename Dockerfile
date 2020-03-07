@@ -19,8 +19,9 @@ RUN chown -R expose /source; chmod -R 777 /source/
 USER expose
 WORKDIR /source
 RUN ./scripts/docker_setup
-RUN nohup Xvfb :1 -screen 0 800x600x24 &
-ENV DISPLAY 1
+#RUN nohup Xvfb :1 -screen 0 800x600x24 &
+#ENV DISPLAY 1
+RUN echo "export DISPLAY=:1" >> /home/expose/.bashrc
 USER root
 
 #Setup Volumes
@@ -29,4 +30,4 @@ RUN chown -R expose /work
 VOLUME ["/work"]
 
 EXPOSE 22
-CMD ["/usr/sbin/sshd", "-D"]
+CMD ["/source/scripts/entrypoint.sh"]
