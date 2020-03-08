@@ -1,3 +1,4 @@
+*.tar
 bin/
 node_modules/
 temp_build/

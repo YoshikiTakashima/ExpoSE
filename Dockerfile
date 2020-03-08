@@ -2,7 +2,7 @@ FROM ubuntu:19.04
 RUN yes | unminimize
 
 #Install SSH, Xvfb etc
-RUN apt update && apt install --assume-yes git bash openssh-server clang build-essential vim curl xvfb python3 python3-pip libgtk-3-0 tmux libxss1 libgconf-2-4 libnss3 libasound2
+RUN apt update && apt install --assume-yes git bash openssh-server clang build-essential vim curl xvfb python3 python3-pip libgtk-3-0 tmux libxss1 libgconf-2-4 libnss3 libasound2 libgtk2.0-0
 RUN pip3 install mitmproxy==4.0.4
 RUN useradd --create-home --shell /bin/bash expose
 RUN echo 'expose:expose' | chpasswd
